@@ -1,0 +1,4 @@
+document 1 (class 1):Chinese Beijing Chinese
+document 2 (class 1):Chinese Chinese Shanghai
+document 3 (class 1):Chinese Macao
+document 4 (class 2):Tokyo Japan Chinese

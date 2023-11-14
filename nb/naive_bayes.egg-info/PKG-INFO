@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: naive-bayes
+Version: 0.0.1
+Summary: naive bayes classifier
+Author: Xueyi Tan
+Author-email: xt93@georgetown.edu
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# What this code does
+
+# How to use
+
+# Reference
+For the training and testing method code, I referenced Professor Trevor Adriaanse's code in my own work.
+Things my code for assignment 2 should modify: 
+1.In my testing method, I didn't specify "if token in vocabulary:", which skipped words that do not appear in the training vocabulary, resulting in wrong classfication.
+2.Comparing to mine, professor made "vocabulary" of training data a dictionary not a list, which is more intuitive and convenient.
+Things Professor's code should have done better:
+1.In function train_nb(), it seems more straighforward to use enumerate, but every time running it may result a different order of word in vocabulary, which cause trouble to pytest. Therefore, I modified this part using a for loop beginning from the first row in df['text'] and now the order of word in vocabulary is stable.
+
+My code for creating vocabulary:
+vocabulary={}
+    index_t=0
+    for i in df['text']:
+        tokens=i.split()
+        for token in tokens:#iterate through the tokens, ignore the token has already in the voc and add new token
+            if token not in vocabulary:
+                vocabulary[token]=index_t
+                index_t=index_t+1
